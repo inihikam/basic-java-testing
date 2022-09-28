@@ -64,6 +64,7 @@
         android:id="@+id/btnHitung"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="hitungBBM"
         android:text="HITUNG" />
 
     <Space

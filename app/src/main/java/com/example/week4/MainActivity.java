@@ -3,6 +3,7 @@ package com.example.week4;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -41,5 +42,15 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<BBM> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, list_bbm);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spnBbm.setAdapter(arrayAdapter);
+    }
+
+    public void hitungBBM(View v){
+        double liter = Double.parseDouble(edtJarak.getText().toString()) / 2.5;
+        int harga = ((BBM)spnBbm.getSelectedItem()).getHarga();
+        int biaya = (int)liter*harga;
+
+        txtTujuan.setText("Tujuan : "+edtTujuan.getText());
+        txtJarak.setText("Jarak : "+edtJarak.getText()+" KM memerlukan "+liter+" ltr BBM");
+        txtBiaya.setText("Biaya : "+biaya);
     }
 }
